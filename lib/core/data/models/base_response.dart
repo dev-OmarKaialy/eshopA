@@ -1,14 +1,14 @@
 import 'package:eshop_a/core/helper/src/typedef.dart';
 
 class BaseResponse<T> {
+  final bool status;
+  final String message;
   final T result;
-  final String errorMessage;
-  final int errorCode;
 
   BaseResponse({
+    required this.status,
+    required this.message,
     required this.result,
-    required this.errorMessage,
-    required this.errorCode,
   });
 
   factory BaseResponse.fromJson({
@@ -16,8 +16,8 @@ class BaseResponse<T> {
     required DataConverter dataConverter,
   }) =>
       BaseResponse(
-        result: dataConverter(json['result']),
-        errorMessage: json['errorMessage'],
-        errorCode: json['errorCode'],
+        status: json['status'],
+        message: json['message'],
+        result: dataConverter(json['data']),
       );
 }
