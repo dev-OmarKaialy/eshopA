@@ -4,8 +4,6 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:eshop_a/core/di/di_container.dart';
 import 'package:eshop_a/core/helper/src/locale_keys.dart';
-import 'package:eshop_a/core/helper/src/prefs_keys.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../dio/api_client.dart';
 import 'error_model.dart';
@@ -66,8 +64,8 @@ class ErrorHandler implements Exception {
           case ResponseCode.FORBIDDEN:
             return DataSource.FORBIDDEN.getFailure();
           case ResponseCode.UNAUTHORISED:
-            getIt<SharedPreferences>().remove(PrefsKeys.token);
-            getIt<SharedPreferences>().remove(PrefsKeys.userInfo);
+            // getIt<SharedPreferences>().remove(PrefsKeys.token);
+            // getIt<SharedPreferences>().remove(PrefsKeys.userInfo);
             getIt<ApiClient>().resetHeader();
             // AppVariables.navigatorKey.currentContext?.pushNamedAndRemoveUntil(
             //   RouteName.splash,

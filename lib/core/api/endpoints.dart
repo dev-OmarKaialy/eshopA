@@ -5,8 +5,9 @@ import 'package:eshop_a/core/helper/src/typedef.dart';
 
 class Endpoints {
   Endpoints._();
-  static const _scheme = 'https';
-  static const _host = '127.0.0.1';
+  static const _scheme = 'http';
+  // static const _host = '127.0.0.1';
+  static const _host = '10.0.2.2';
   static const _port = 8000;
 
   static Uri _mainUri({

@@ -1,6 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:eshop_a/core/helper/src/app_varibles.dart';
-import 'package:eshop_a/core/helper/src/helper_func.dart';
 import 'package:injectable/injectable.dart';
 
 import 'logger_interceptor.dart';
@@ -24,9 +22,9 @@ class ApiClient {
       ..options.receiveTimeout = const Duration(milliseconds: 30000)
       ..httpClientAdapter
       ..options.headers = {
+        'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'lang': 'ar',
-        if (HelperFunc.isAuth()) 'Authorization': 'Bearer ${AppVariables.token}'
+        // if (HelperFunc.isAuth()) 'Authorization': 'Bearer ${AppVariables.token}'
       };
     dio.interceptors.clear();
     dio.interceptors.add(loggingInterceptor);
